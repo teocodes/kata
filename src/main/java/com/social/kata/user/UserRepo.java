@@ -1,27 +1,14 @@
 package com.social.kata.user;
 
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+@Service
 public class UserRepo {
     private List<User> userList;
-
     public UserRepo() {
         this.userList = new ArrayList<>();
-    }
-
-    public void add(String user, String message){
-        int index = findUserPosition(user);
-        if(index != -1){
-            userList.get(index).addMessage(message);
-        }
-        else{
-            User u = new User();
-            u.setUsername(user);
-            u.addMessage(message);
-        }
     }
 
     private Integer findUserPosition(String username){
@@ -37,5 +24,25 @@ public class UserRepo {
         return found;
     }
 
+    public void add(User user){
+        int index = findUserPosition(user.getUsername());
+        if(index != -1){
+            userList.get(index).addMessage(user.getMessages().get(0));
+        }
+        else{
+            userList.add(user);
+        }
+    }
+
+    public User get(String username){
+        User user = null;
+
+        int index = findUserPosition(username);
+        if(index != -1){
+            user = userList.get(index);
+        }
+
+        return user;
+    }
 
 }
