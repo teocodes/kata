@@ -23,9 +23,6 @@ public class KataApplicationCmdRunner implements CommandLineRunner {
     @Override
     public void run(String...args) throws Exception {
 
-       // console.getConsoleLine();
-    //    System.out.println(parser.parse(console)[0]);
-
         while(true){
             System.out.print("> ");
 
@@ -33,9 +30,6 @@ public class KataApplicationCmdRunner implements CommandLineRunner {
             cmd.execCommand(userRepo);
         }
 
-
-
     }
-
 
 }

@@ -19,7 +19,4 @@ public class Console {
         return buffer.readLine();
     }
 
-    public void sendToConsole(String toSend){
-        System.out.println(toSend);
-    }
 }

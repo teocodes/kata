@@ -1,13 +1,14 @@
 package com.social.kata.user;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class User {
 
     private String username;
     private List<String> followers;
-    private List<String> messages;
+    private List<Message> messages;
 
     public User() {
         this.followers = new ArrayList<>();
@@ -18,8 +19,10 @@ public class User {
         this.followers = new ArrayList<>();
         this.messages = new ArrayList<>();
 
+        Message msg = new Message(username, message, new Date());
+
         this.username = username;
-        this.messages.add(message);
+        this.messages.add(msg);
     }
 
     public String getUsername() {
@@ -43,14 +46,20 @@ public class User {
     }
 
     public void addMessage(String message) {
-        messages.add(message);
+        Message msg = new Message(username, message, new Date());
+        messages.add(msg);
     }
 
-    public List<String> getMessages() {
+    public void addMessage(Message message) {
+        Message msg = message;
+        messages.add(msg);
+    }
+
+    public List<Message> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<String> messages) {
+    public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
 }
