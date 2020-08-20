@@ -17,12 +17,15 @@ public class FollowingCommand implements Command{
     @Override
     public void execCommand(UserRepo userRepo) {
 
-        String username = Util.formatResult(parsedString, "POST").get(0);
-        String message = Util.formatResult(parsedString, "POST").get(1);
+        String username = Util.formatResult(parsedString, "FOLLOW").get(0);
+        String follname = Util.formatResult(parsedString, "FOLLOW").get(1);
 
-        User user = new User(username, message);
-        userRepo.add(user);
-        System.out.println("PostingCommand 26" + username +" " + message);
-        System.out.println("PostingCommand 27" + userRepo.get(username).getMessages().toString());
+        User user = userRepo.get(username);
+    //    User userToFollow = userRepo.get(follname);
+     //   userRepo.get(username).addFollower(userToFollow); //add follower to principal user
+
+        userRepo.addFollower(user, follname);
+
+        System.out.println("> Ora "+username+" segue "+follname);
     }
 }

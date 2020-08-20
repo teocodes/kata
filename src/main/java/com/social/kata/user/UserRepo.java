@@ -34,6 +34,11 @@ public class UserRepo {
         }
     }
 
+    public void addFollower(User user, String follower){
+        int index = findUserPosition(user.getUsername());
+        userList.get(index).addFollower(follower.trim());
+    }
+
     public User get(String username){
         User user = null;
 

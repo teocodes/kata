@@ -1,5 +1,6 @@
 package com.social.kata.command;
 
+import com.social.kata.user.Message;
 import com.social.kata.user.User;
 import com.social.kata.user.UserRepo;
 import com.social.kata.utils.Util;
@@ -21,8 +22,8 @@ public class ReadingCommand implements Command{
 
         User user = userRepo.get(username);
 
-        for(String msg : user.getMessages()){
-            System.out.println(msg);
+        for(Message msg : user.getMessages()){
+            System.out.println("> "+msg.getUsername()+": "+msg.getMessage() +" ("+Util.timeDiff(msg.getSendDate())+")");
         }
 
     }
