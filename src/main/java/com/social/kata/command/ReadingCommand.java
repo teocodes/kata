@@ -19,8 +19,11 @@ public class ReadingCommand implements Command{
 
         String username = Util.formatResult(parsedString, "READ").get(0);
 
-        userRepo.get(username);
+        User user = userRepo.get(username);
 
-        System.out.println(username +" " );
+        for(String msg : user.getMessages()){
+            System.out.println(msg);
+        }
+
     }
 }

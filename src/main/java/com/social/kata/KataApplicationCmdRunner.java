@@ -22,12 +22,18 @@ public class KataApplicationCmdRunner implements CommandLineRunner {
 
     @Override
     public void run(String...args) throws Exception {
-        System.out.println("provala");
+
        // console.getConsoleLine();
     //    System.out.println(parser.parse(console)[0]);
 
-        Command cmd = parser.getCommandType(console.getConsoleLine());
-        cmd.execCommand(userRepo);
+        while(true){
+            System.out.print("> ");
+
+            Command cmd = parser.getCommandType(console);
+            cmd.execCommand(userRepo);
+        }
+
+
 
     }
 
