@@ -7,16 +7,9 @@ import java.io.IOException;
 @Component
 public class Parser {
 
-    public String[] parse(Console cmdline) throws IOException {
-
-       String[] str = cmdline.getConsoleLine().split(" ");
-
-       return str;
-    }
-
     public Command getCommandType(Console cmdline) throws IOException {
 
-        String[] parsed = parse(cmdline);
+        String[] parsed = cmdline.getConsoleLine().split(" ");
 
         String str = null;
 

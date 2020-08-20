@@ -21,8 +21,6 @@ public class FollowingCommand implements Command{
         String follname = Util.formatResult(parsedString, "FOLLOW").get(1);
 
         User user = userRepo.get(username);
-    //    User userToFollow = userRepo.get(follname);
-     //   userRepo.get(username).addFollower(userToFollow); //add follower to principal user
 
         userRepo.addFollower(user, follname);
 
